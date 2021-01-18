@@ -278,6 +278,9 @@ class InputElement extends React.Component {
     // but for consistent behavior we do it for all browsers
     this.selectionDeferId = defer(() => {
       this.selectionDeferId = null;
+      if (!this.isFocused()) {
+        return;
+      }
       setInputSelection(input, start, end);
     });
 
